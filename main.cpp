@@ -9,6 +9,12 @@
 
 void output_file(char* text);
 
+int file_line_cnt(int* cnt, char* flag);
+
+int file_line_cnt(char* flag);
+
+int getc_len(char* str);
+
 int main(void) {
 
     FILE* onegin = fopen("onegin.txt", "r");
@@ -30,35 +36,48 @@ int main(void) {
 
     fread(buffer, sizeof(char), buf_len, onegin);
 
-    buffer[buf_len] = '\0';
+    buffer[buf_len-1] = '\0';
 
     /*for (int i = 0; i < 200; i++)
         printf("%c", buffer[i]);*/
 
-    int str_count = 0;
 
     //printf("%s", buffer);
 
-    char* index = NULL;        //проход по указателям ищем \n
-                               //qsort
+    char* flag = buffer;
+    char* index = NULL;
+    int str_count = file_line_cnt(flag);
+    int ind = 0;
 
-        char* flag = buffer;
+    int other_len = getc_len(buffer);
 
-    while(flag != NULL) {
+    printf("first stlen %d\n", other_len);
 
-        index = strchr(flag, '\n');
+    char** stringer = (char**)calloc(str_count, sizeof(char*));
 
-        flag = index + 1;
+    stringer[ind] = buffer;
 
-        printf("adress flag is %p\n", flag);
+    ind++;
 
-        str_count++;
+    for(int i = 0; i < buf_len; i++) {
 
-        if (index == NULL)
+        if (buffer[i] == '\n') {
+            stringer[ind] = (char*)(buffer[i] + (ind+1)*sizeof(char*));
+            ind++;
+        }
+
+        printf("adress flag is %p\n", stringer[ind]);
+
+        if (index == NULL) {
+            printf("adress is NULL!!!!!!\n");
             break;
+        }
+
+        printf("%s\n", stringer[i]);
     }
 
-    printf("%d\n", str_count);
+
+    printf("uncommon stlen %d\n", str_count);
 
     fclose(onegin);
 
@@ -77,6 +96,42 @@ void output_file(char* text) {
     }
 
    // fputs(text, res_out);
-    fprintf(res_out, "Lil gang");
+    //fprintf(res_out, "Lil gang");
     fclose(res_out);
 }
+
+int file_line_cnt(char* flag) {
+
+    char* index = NULL;
+    int cnt = 1;
+
+    while(flag != NULL) {
+
+        index = strchr(flag, '\n');
+
+        flag = index + 1;
+
+        //printf("adress flag is %p\n", flag);
+
+        //if (strcmp("wh
+
+        cnt++;
+
+        if (index == NULL)
+            break;
+    }
+
+    return cnt;
+}
+
+int getc_len(char* str) {
+    int cnt = 1;
+
+    for(int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '\n')
+            cnt++;
+    }
+
+    return cnt;
+}
+
