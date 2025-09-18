@@ -1,3 +1,4 @@
+//#include<TXlib.h>
 #include<stdio.h>
 #include<string.h>
 #include<sys/stat.h>
@@ -6,46 +7,50 @@
 #define FILE_ADR_ASSERT(ex) if(!(ex)) { printf("error of reading file\n"); abort();}
 #define STRING_COUNT_ASSERT(ex) if (!(ex)) { printf("counting strings returns adress NULL"); abort();}
 
+void output_file(char* text);
+
 int main(void) {
 
     FILE* onegin = fopen("onegin.txt", "r");
 
     FILE_ADR_ASSERT(onegin);
 
-    const char* file_name = "onegin.txt";
+    const char file_name[11] = "onegin.txt";
 
     struct stat file_info = {};
-
     stat(file_name, &file_info);
 
     rewind(onegin);
 
-    int buf_len = file_info.st_size;
+    int buf_len = file_info.st_size + 1;
 
-    char* buffer = (char*)calloc(1, buf_len + 1);
+    char* buffer = (char*)calloc(1, buf_len);
 
     printf("%d\n", buf_len);
 
-    fread(buffer, 1, buf_len, onegin);
+    fread(buffer, sizeof(char), buf_len, onegin);
 
-    buffer[buf_len+1] = '\0';
+    buffer[buf_len] = '\0';
+
+    /*for (int i = 0; i < 200; i++)
+        printf("%c", buffer[i]);*/
 
     int str_count = 0;
 
-   /* for (int i = 0; i < 100; i++)
-        printf("%s", buffer);   */
+    //printf("%s", buffer);
 
     char* index = NULL;        //проход по указателям ищем \n
                                //qsort
-    while(*index != '\0') {
 
-        int flag = 0;
+        char* flag = buffer;
 
-        index = strchr(buffer, '\n');
-        
-        flag = inde
+    while(flag != NULL) {
 
-        printf("adress str_cnt is %p\n", index);
+        index = strchr(flag, '\n');
+
+        flag = index + 1;
+
+        printf("adress flag is %p\n", flag);
 
         str_count++;
 
@@ -57,5 +62,21 @@ int main(void) {
 
     fclose(onegin);
 
+    output_file(buffer);
+
     return 0;
+}
+
+void output_file(char* text) {
+
+    FILE* res_out = fopen("output.txt", "w");
+
+    if (res_out == NULL) {
+        printf("error opening output file\n");
+        return;
+    }
+
+    fputs(text, res_out);
+
+    fclose(res_out);
 }

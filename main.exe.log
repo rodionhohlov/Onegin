@@ -1,0 +1,164 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D9AF в функции main() в файле C:/Users/FAST LOAD/Documents/GitHub/Onegin/main.cpp на строке 33. Попытка записать данные по адресу 0x00039EE1 в модуле C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x005071DC (32-bit), Flags: Cmdre0, Thread: 0x2034 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D9AF in C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe: main() at C:/Users/FAST LOAD/Documents/GitHub/Onegin/main.cpp:33:
+
+     31:     fread(buffer, sizeof(char), buf_len, onegin);
+     32: 
+=>   33:     buffer[buf_len] = '\0';
+     34: 
+     35:     int str_count = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\fast load\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2025 21:26:38, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2025 21:26:45
+
+Run file:	C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe
+Directory:	C:\Users\FAST LOAD\Documents\GitHub\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D9AF в функции main() в файле C:/Users/FAST LOAD/Documents/GitHub/Onegin/main.cpp на строке 33. Попытка записать данные по адресу 0x00039EE1 в модуле C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x005071DC (32-bit), Flags: Cmdre0, Thread: 0x2034 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D9AF in C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe: main() at C:/Users/FAST LOAD/Documents/GitHub/Onegin/main.cpp:33:
+
+     31:     fread(buffer, sizeof(char), buf_len, onegin);
+     32: 
+=>   33:     buffer[buf_len] = '\0';
+     34: 
+     35:     int str_count = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\fast load\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2025 21:26:38, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2025 21:26:45
+
+Run file:	C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe
+Directory:	C:\Users\FAST LOAD\Documents\GitHub\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042DA13 в функции main() в файле C:/Users/FAST LOAD/Documents/GitHub/Onegin/main.cpp на строке 42. Попытка прочесть данные по адресу NULL в модуле C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x005071DC (32-bit), Flags: Cmdre0, Thread: 0x1510 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042DA13 in C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe: main() at C:/Users/FAST LOAD/Documents/GitHub/Onegin/main.cpp:42:
+
+     40:                                //qsort
+     41: 
+=>   42:     while(*index != '\0') {
+     43: 
+     44:         char* flag = buffer;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\fast load\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2025 21:30:04, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2025 21:30:10
+
+Run file:	C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe
+Directory:	C:\Users\FAST LOAD\Documents\GitHub\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042DA13 в функции main() в файле C:/Users/FAST LOAD/Documents/GitHub/Onegin/main.cpp на строке 42. Попытка прочесть данные по адресу NULL в модуле C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x005071DC (32-bit), Flags: Cmdre0, Thread: 0x1510 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042DA13 in C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe: main() at C:/Users/FAST LOAD/Documents/GitHub/Onegin/main.cpp:42:
+
+     40:                                //qsort
+     41: 
+=>   42:     while(*index != '\0') {
+     43: 
+     44:         char* flag = buffer;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\fast load\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2025 21:30:04, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2025 21:30:10
+
+Run file:	C:\Users\FAST LOAD\Documents\GitHub\Onegin\main.exe
+Directory:	C:\Users\FAST LOAD\Documents\GitHub\Onegin
+
+--------------------------------------------------
