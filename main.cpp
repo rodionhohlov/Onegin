@@ -26,9 +26,9 @@ int main(void) {
     struct stat file_info = {};
     stat(file_name, &file_info);
 
-    rewind(onegin);
+    int buf_len = file_info.st_size;
 
-    int buf_len = file_info.st_size + 1;
+    rewind(onegin);
 
     char* buffer = (char*)calloc(1, buf_len);
 
@@ -45,7 +45,6 @@ int main(void) {
     //printf("%s", buffer);
 
     char* flag = buffer;
-    char* index = NULL;
     int str_count = file_line_cnt(flag);
     int ind = 0;
 
@@ -55,27 +54,29 @@ int main(void) {
 
     char** stringer = (char**)calloc(str_count, sizeof(char*));
 
-    stringer[ind] = buffer;
+    *stringer = buffer;
 
     ind++;
 
-    for(int i = 0; i < buf_len; i++) {
+    for(int i = 0; i < buf_len; i++) {    //weitingin arrive of pointers
 
         if (buffer[i] == '\n') {
-            stringer[ind] = (char*)(buffer[i] + (ind+1)*sizeof(char*));
+            *(stringer + ind) = buffer + (i+1)*sizeof(char*);
+
+            printf("adress flag is %p\n", *(stringer + ind));
+
             ind++;
         }
 
-        printf("adress flag is %p\n", stringer[ind]);
 
-        if (index == NULL) {
+        if (*(stringer + ind) == NULL) {
             printf("adress is NULL!!!!!!\n");
             break;
         }
-
-        printf("%s\n", stringer[i]);
     }
 
+    for (int i = 0; i < 100; i++)
+        printf("%s", stringer[i]);
 
     printf("uncommon stlen %d\n", str_count);
 
@@ -87,6 +88,7 @@ int main(void) {
 }
 
 void output_file(char* text) {
+    int i = 0;
 
     FILE* res_out = fopen("output.txt", "w");
 
@@ -95,8 +97,12 @@ void output_file(char* text) {
         return;
     }
 
-   // fputs(text, res_out);
-    //fprintf(res_out, "Lil gang");
+    while (text[i] != '\0') {
+        fputc(text[i], res_out);
+        i++;
+    }
+
+    fputc(text[i], res_out);
     fclose(res_out);
 }
 
